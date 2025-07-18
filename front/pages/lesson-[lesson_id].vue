@@ -1,25 +1,31 @@
 <template>
     <header id="coach-header">
         <div class="buttons">
-            <Button>Отметить занятие</Button>
+            <Button>Готово</Button>
             <Button>Отмена</Button>
         </div>
 
         <div class="lessons" v-for="(item, index) in studentsData" :key="index">
-            <div class="lesson">
-                <p id="time-lesson">{{ item.students[index].name }}</p>
-                <select name="" id="">
-                    <option value="">был</option>
-                    <option value="">не был</option>
-                    <option value="">дз</option>
-                    <option value="">нет дз</option>
-                </select>
-                <select name="" id="">
-                    <option value="">был</option>
-                    <option value="">не был</option>
-                    <option value="">дз</option>
-                    <option value="">нет дз</option>
-                </select>
+            <div class="lessons" v-for="index2 in item.students" :key="index2">
+                <div class="lesson">
+                    <p id="time-lesson">{{ index2.name }}</p>
+                    <div class="select">
+                        <select name="" id="">
+                            <option value="" selected disabled hidden>ДЗ</option>
+                            <option value="">Сделал</option>
+                            <option value="">Не сделал</option>
+                            <option value="">Не задано</option>
+                        </select>
+                        <select name="" id="">
+                            <option value="" selected disabled hidden>Был</option>
+                            <option value="">Был</option>
+                            <option value="">Не был</option>
+                            <option value="">Онлайн</option>
+                            <option value="">Уваж</option>
+                            <option value="">Не уваж</option>
+                        </select>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -48,16 +54,23 @@ onMounted(async () => {
 })
 </script>
 
-<style>
-Button{
-    padding:3%;
+<style scoped> 
+.select{
+    display: flex;
+    justify-content: space-between;
+    width:50%;
 }
-.buttons{
-    width:100%;
-    display:flex;
+Button {
+    padding: 3%;
+}
+
+.buttons {
+    width: 100%;
+    display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 select {
     color: aliceblue;
 }
@@ -67,13 +80,12 @@ p {
 }
 
 .lessons {
-    width: 100%;
+    width: 10cap;
     padding-top: 3%;
 }
 
 .lesson {
-
-    padding: 3%;
+    padding: 1%;
     border-radius: 5px;
     background-color: rgb(22, 22, 22);
     margin-top: 5%;
