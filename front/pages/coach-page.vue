@@ -139,4 +139,17 @@ p {
 Button {
     width: 80%;
 }
+@media (max-width:593px) {
+    Button{
+        font-size: 10px;
+    }
+}
+@media (max-width:376px) {
+    Button{
+        font-size: 9px;
+    }
+    #coach-header{
+        width:100%;
+    }
+}
 </style>
